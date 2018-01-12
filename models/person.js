@@ -7,7 +7,8 @@ var person = new Schema({
         required: true
     },
     age: Number,
-    address: String
+    address: String,
+    phone: [Number]
 })
 
 module.exports = mongoose.model('person', person)

@@ -32,3 +32,19 @@
 // // Memory ratio
 
 // console.log('Ratio' + os.totalmem() / 1024 / os.freemem() / 1024);
+
+
+var fs = require("fs");
+// console.log("Going to create directory /tmp/test");
+fs.mkdir(__dirname + '/../idiota/', function(err) {
+    if (err) {
+        return console.error(err);
+    }
+    console.log("Directory created successfully!");
+});
+
+if (fs.existsSync(__dirname + '/idiot/')) {
+    console.log("hurray")
+} else {
+    console.log("GO to hell")
+}
