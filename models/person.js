@@ -1,9 +1,17 @@
-var mongoose = require('mongoose');
-var schema = mongoose.Schema;
-var person = new schema({
-    name: String,
-    phone: [Number],
+var mongoose = require('mongoose')
+var Schema = mongoose.Schema
+
+var person = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
     age: Number,
-    email: String
+    phone: {
+        type: Number,
+        required: true,
+        unique: true
+    }
 })
-module.exports = mongoose.model('person', person)
+
+module.exports = mongoose.model('people', person)

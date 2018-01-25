@@ -10,5 +10,4 @@ var product = new Schema({
         type: String
     }
 })
-product.index({ name: 1, price: 1 }, { unique: true })
 module.exports = mongoose.model('product', product)

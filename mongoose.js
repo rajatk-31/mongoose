@@ -17,8 +17,14 @@ mongoose.connect('mongodb://localhost/product', err => {
 
 
 
+var abc = 'pe'
+dbProduct.find({ name: { $regex: abc, '$options': 'i' } }, (err, data) => {
+    console.log('---', err);
+    console.log('===', data)
+})
+
 // app.post('/addProduct', (req, res) => {
-//     console.log(req.body)
+//     console.log(req.body) 
 //     if (!req.body.name || !req.body.price || !req.body.description) {
 //         res.json({
 //             success: false,
@@ -49,20 +55,20 @@ mongoose.connect('mongodb://localhost/product', err => {
 
 
 
-var newProduct = new dbProduct({
-    name: "Pen",
-    price: 5,
-    description: "dg"
-})
+// var newProduct = new dbProduct({
+//     name: "pen",
+//     price: 5,
+//     description: "PeNfgg"
+// })
 
-newProduct.save((err, data) => {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log("Data saved")
-        console.log(data)
-    }
-})
+// newProduct.save((err, data) => {
+//     if (err) {
+//         console.log(err)
+//     } else {
+//         console.log("Data saved")
+//         console.log(data)
+//     }
+// })
 
 // dbProduct.find({ name: "Pen" }, (err, data) => {
 //     if (err) {
@@ -73,10 +79,10 @@ newProduct.save((err, data) => {
 // })
 
 
-// app.listen(3000, err => {
-//     if (err) {
-//         console.log(err)
-//     } else {
-//         console.log("Server stared on port 3000")
-//     }
-// })
+app.listen(3000, err => {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log("Server stared on port 3000")
+    }
+})
