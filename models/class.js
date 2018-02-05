@@ -8,8 +8,8 @@ var cls = new Schema({
         default: "ABC",
         required: true,
     },
-    age: Number,
-    dob: Date
+    email: String,
+    password: String,
 })
 
 
