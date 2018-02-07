@@ -1,3 +1,5 @@
 node_modules
 cp.js
+bcrypt.js
+encrypt.js
 csvtoarray.js

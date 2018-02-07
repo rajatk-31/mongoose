@@ -34,6 +34,8 @@ mongoose.connect(config.MONGO, (err, data) => {
 //     console.log(data)
 // })
 
+
+
 app.post('/add', (req, res) => {
     if (!req.body.name || !req.body.age || !req.body.phone) {
         res.json({
@@ -78,6 +80,44 @@ app.post('/add', (req, res) => {
     }
 })
 
+app.get('/get', (req, res) => {
+    person.find({}, (err, data) => {
+        if (err) {
+            res.json({
+                success: false,
+                msg: "Something went wrong"
+            })
+        } else {
+            res.json({
+                success: true,
+                data: data
+            })
+        }
+    })
+})
+
+app.put('/edit', (req, res) => {
+    if (!req.body.name || !req.body.age || !req.body.phone || !req.body.id) {
+        res.json({
+            success: false,
+            msg: "All data no entered"
+        })
+    } else {
+        person.findOneAndUpdate({ _id: req.body.id }, { $set: { name: req.body.name, age: req.body.age, phone: req.body.phone } }, (err, data) => {
+            if (err) {
+                res.json({
+                    success: false,
+                    msg: "Something went wrong"
+                })
+            } else {
+                res.json({
+                    success: true,
+                    msg: "Data updated"
+                })
+            }
+        })
+    }
+})
 
 app.listen(config.PORT, () => {
     console.log("Server started at PORT " + config.PORT)
