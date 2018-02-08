@@ -24,13 +24,18 @@ mongoose.connect('mongodb://localhost/product', err => {
 //     if (err) throw err
 //     console.log(data)
 // })
+// var name = 'gender'
+// var value = 'male'
+// var query = {};
+// query[name] = value;
 
 
-// dbDynamic.findOne({ name: 'Rajat' }, { $push: { address: 'abc' }, $set: { age: 22 } }, (err, data) => {
+// dbDynamic.findOneAndUpdate({ name: 'Rajat' }, { $set: query }, (err, data) => {
 //     if (err) throw err
 //     console.log(data)
 // })
-
+// var field = 'gender'
+// var value = 'male'
 
 dbDynamic.findOne({ name: 'Rajat' }, (err, data) => {
     if (err) throw err
