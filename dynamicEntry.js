@@ -25,6 +25,13 @@ mongoose.connect('mongodb://localhost/product', err => {
 //     console.log(data)
 // })
 
+
+// dbDynamic.findOne({ name: 'Rajat' }, { $push: { address: 'abc' }, $set: { age: 22 } }, (err, data) => {
+//     if (err) throw err
+//     console.log(data)
+// })
+
+
 dbDynamic.findOne({ name: 'Rajat' }, (err, data) => {
     if (err) throw err
     console.log(data)
