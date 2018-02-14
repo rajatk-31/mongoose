@@ -24,11 +24,15 @@ mongoose.connect('mongodb://localhost/product', err => {
 //     if (err) throw err
 //     console.log(data)
 // })
-// var name = 'gender'
-// var value = 'male'
-// var query = {};
-// query[name] = value;
-
+var name = 'gender'
+var secondField = 'job'
+var secVal = 'dev'
+var value = 'male'
+var query = {};
+query[name] = value;
+query[secondField] = secVal
+console.log(query)
+    // var fq = {$set: {query}}
 
 // dbDynamic.findOneAndUpdate({ name: 'Rajat' }, { $set: query }, (err, data) => {
 //     if (err) throw err
