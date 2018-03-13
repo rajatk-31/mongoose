@@ -1,23 +1,27 @@
-var allData = [];
+let crypto = require('crypto')
 
-function callback(data) {
-    if (typeof data === "string") {
-        console.log(data);
-    } else if (typeof data === "object") {
-        for (var item in data) {
-            console.log(item + ": " + data[item]);
-        }
-    }
+
+let encrypt = (crptoKey, ...value) => {
+        console.log(value)
+        // var mykey = crypto.createCipher('aes-128-cbc', crptoKey);
+        console.log(value)
+        let output = [];
+        console.log('here')
+        value.forEach(element => {
+            var mykey = crypto.createCipher('aes-128-cbc', crptoKey);
+            console.log(element)
+            let mystr = mykey.update(element, 'utf8', 'hex')
+            mystr += mykey.final('hex');
+            output.push(mystr)
+        });
+        console.log(output)
+    
 }
 
-function mainFunction(data, callback) {
-
-    allData.push(data);
-    callback(data)
+var encrypts = (crptoKey, value)=>{
+    var mykey = crypto.createCipher('aes-128-cbc', crptoKey);
+    let mystr = mykey.update(value, 'utf8', 'hex')
+    mystr += mykey.final('hex');
+    console.log(mystr)
 }
-
-
-mainFunction({
-    name: 'NITISH',
-    speciality: 'PPT'
-}, callback);
+encrypt('abcd','skhfhd','545454')

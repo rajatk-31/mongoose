@@ -1,6 +1,5 @@
 var mongoose = require('mongoose')
-var dbLogin = require('./models/class')
-var dbProduct = require('./models/product')
+// var dbLogin = require('./models/class')
 var express = require('express')
 var bodyParser = require('body-parser')
 var app = express();
@@ -9,7 +8,7 @@ var jwt = require('jsonwebtoken')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-mongoose.connect('mongodb://localhost/product', err => {
+mongoose.connect('mongodb://rajat:rajat@ds239648.mlab.com:39648/sample', err => {
     if (err) {
         console.log(err)
     } else {
