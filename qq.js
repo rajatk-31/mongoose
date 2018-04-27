@@ -1,19 +1,14 @@
-var abc = () => {
-    return new Promise((resolve, reject) => {
-        resolve("abc")
+var func = async() => {
+    var a = [1, 1, 8888]
+    var flag = 0
+
+    a.forEach((ele, i) => {
+        console.log('---', i)
+        if (ele === 8888) {
+            flag = 1;
+        }
     })
+    console.log(flag)
 }
 
-var bcd = () => {
-    return new Promise((resolve, reject) => {
-        reject("bcd")
-    })
-}
-
-var a = abc()
-var b = bcd()
-Promise.all([b, a]).then(data => {
-    console.log(data)
-}).catch(Err => {
-    console.log(Err)
-})
+func()

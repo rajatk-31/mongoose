@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-// var dbLogin = require('./models/class')
+    // var dbLogin = require('./models/class')
 var express = require('express')
 var bodyParser = require('body-parser')
 var app = express();
@@ -8,7 +8,8 @@ var jwt = require('jsonwebtoken')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-mongoose.connect('mongodb://rajat:rajat@ds239648.mlab.com:39648/sample', err => {
+mongoose.connect('mongodb://rajat:rajat@ds127589.mlab.com:27589/mocha', err => {
+
     if (err) {
         console.log(err)
     } else {
@@ -34,6 +35,11 @@ var tokenVerify = (req, res, next) => {
         })
     }
 }
+
+app.get('/home', (req, res) => {
+    res.redirect('http://zenways.io');
+
+})
 
 app.post('/register', (req, res) => {
     if (!req.body.email || !req.body.password) {

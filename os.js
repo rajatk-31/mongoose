@@ -1,33 +1,8 @@
-var os = require("os");
+var moment = require('moment');
 
-
-
-
-
-
-// OS type
-
-console.log('type : ' + os.type());
-
-
-
-// OS platform
-
-console.log('platform : ' + os.platform());
-
-
-
-// Total system memory
-
-console.log('total memory : ' + os.totalmem() / 1024 + " kbytes.");
-
-
-
-// Total free memory
-
-console.log('free memory : ' + os.freemem() / 1024 + " kbytes.");
-
-
-// Memory ratio
-
-console.log('Ratio' + os.totalmem() / 1024 / os.freemem() / 1024);
+var check = moment.utc();
+var nDate = new Date()
+var date = moment().format('DD-MM-YY')
+var acDate = moment(date, 'DD-MM-YY').toDate();
+// console.log(typeof nDate, '=====', moment(date, 'DD-MM-YY').toDate())
+var success;
