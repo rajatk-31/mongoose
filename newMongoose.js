@@ -21,13 +21,12 @@ var add = async() => {
         console.log('done');
     })
 }
+add()
 var abc = async() => {
-    await add();
-    if (flag == 0) {
-        console.log('0')
-    } else {
-        console.log('1')
-    }
+    var users = await cls.find({}, { age: 1, dob: 0 }).catch(err => {
+        console.log(err)
+    })
+    console.log(users)
 }
 
 abc()

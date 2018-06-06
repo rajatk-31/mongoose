@@ -1,17 +1,32 @@
-var sum = (a, b) => {
+var a = () => {
     return new Promise((resolve, reject) => {
-        if (!a || !b) {
-            reject("Both numbers not entered")
-        } else {
-            resolve({ sum: a + b })
-        }
+        setInterval(() => {
+            resolve('wow')
+        }, 1000)
+    })
+}
+var b = () => {
+    return new Promise((resolve, reject) => {
+        setInterval(() => {
+            reject('edfdf')
+        }, 2000)
+    })
+}
+var c = () => {
+    return new Promise((resolve, reject) => {
+        setInterval(() => {
+            resolve('dffds')
+        }, 3000)
     })
 }
 
-sum().then(data => {
-    console.log(data)
-}, err => {
-    console.log(err)
-})
-var moment = require('moment')
-console.log(moment(moment.utc()).format("HH"))
+const verifyUser = async function() {
+
+    const userInfo = await a();
+    const rolesInfo = await b().catch((err) => { console.log(err); });;
+    console.log('----')
+    const logStatus = await c();
+    console.log(userInfo, rolesInfo, logStatus)
+
+};
+verifyUser();

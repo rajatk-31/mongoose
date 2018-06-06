@@ -36,36 +36,38 @@ var tokenVerify = (req, res, next) => {
     }
 }
 
-app.get('/home', (req, res) => {
+app.post('/home', (req, res) => {
+    console.log(req.file)
     res.redirect('http://zenways.io');
 
 })
 
-app.post('/register', (req, res) => {
-    if (!req.body.email || !req.body.password) {
-        res.json({
-            msg: "Please enter both details"
-        })
-    } else {
-        var newLogin = new dbLogin({
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password
-        })
-        newLogin.save((err, data) => {
-            if (err) {
-                res.json({
-                    success: false,
-                    msg: "Something went wrong"
-                })
-            } else {
-                res.json({
-                    success: true,
-                    msg: "Data saved. Please login to continue"
-                })
-            }
-        })
-    }
+app.get('/register', (req, res) => {
+    // if (!req.body.email || !req.body.password) {
+    //     res.json({
+    //         msg: "Please enter both details"
+    //     })
+    // } else {
+    //     var newLogin = new dbLogin({
+    //         name: req.body.name,
+    //         email: req.body.email,
+    //         password: req.body.password
+    //     })
+    //     newLogin.save((err, data) => {
+    //         if (err) {
+    //             res.json({
+    //                 success: false,
+    //                 msg: "Something went wrong"
+    //             })
+    //         } else {
+    //             res.json({
+    //                 success: true,
+    //                 msg: "Data saved. Please login to continue"
+    //             })
+    //         }
+    //     })
+    // }
+
 })
 
 app.post('/login', (req, res) => {
