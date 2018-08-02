@@ -1,5 +1,15 @@
-var mongoose = require('mongoose')
+var sum = (a, b) => {
+    return new Promise((resolve, reject) => {
+        if (!a || !b) {
+            reject('Error')
+        } else {
+            resolve(a + b)
+        }
+    })
+}
 
-mongoose.connect('mongodb://localhost/sample', () => {
-    console.log("Database Connected")
+sum(2).then((data) => {
+    console.log(data)
+}).catch((err) => {
+    console.log(err)
 })

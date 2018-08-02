@@ -27,21 +27,21 @@ mongoose.connect('mongodb://localhost/test', err => {
 //     if (err) {
 //         console.log("Error", err)
 //     } else {
-//         new dbDetails({
-//             email: data.email,
-//             person: data._id,
-//             occupation: "Student"
-//         }).save((err, newData) => {
-//             if (err) {
-//                 console.log('errrr')
-//             } else {
-//                 console.log('done')
-//             }
-//         })
+//         // new dbDetails({
+//         //     email: data.email,
+//         //     person: data._id,
+//         //     occupation: "Student"
+//         // }).save((err, newData) => {
+//         //     if (err) {
+//         //         console.log('errrr')
+//         //     } else {
+//         console.log('done')
+//             // }
+//             // })
 //     }
 // })
 
-dbDetails.find({}).populate('person').exec((err, data) => {
+dbDetails.find({}, (err, data) => {
     if (err) {
         console.log('err', err)
     } else {
@@ -49,10 +49,10 @@ dbDetails.find({}).populate('person').exec((err, data) => {
     }
 })
 
-// dbPerson.findOneAndUpdate({ name: 'abc' }, { $set: { age: 25 } }, (err, data) => {
-//     if (err) {
-//         console.log(err)
-//     } else {
-//         console.log("Data updated", data)
-//     }
-// })
+dbPerson.findOneAndUpdate({ name: 'abc' }, { $set: { age: 25 } }, (err, data) => {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log("Data updated", data)
+    }
+})

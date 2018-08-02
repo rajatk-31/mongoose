@@ -14,11 +14,11 @@ var mailSender = email.server.connect({
 });
 var multer = require('multer')
 var upload = multer({ dest: 'rajat/' })
-var cpUpload = upload.fields([{ name: 'avatar', maxCount: 2 }, { name: 'gallery', maxCount: 8 }])
+var cpUpload = upload.fields([{ name: 'avatar', maxCount: 3 }, { name: 'gallery', maxCount: 8 }])
 app.post('/home', cpUpload, function(req, res, next) {
     // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files 
     // console.log(req.files)
-    // console.log(req.files.avatar)
+    console.log(req.files)
     let data = fs.readFileSync(req.files.avatar[0].path, 'utf8');
     // console.log(data)
     var lines = data.split("\n");
@@ -37,25 +37,17 @@ app.post('/home', cpUpload, function(req, res, next) {
         }
         result.push(obj);
         if (i == lines.length - 1) {
-            console.log('---------------', req.files.avatar[0].path)
-            fs.unlink(req.files.avatar[0].path, err => {
-                if (err) {
-                    console.log('errrrrrrrrr')
-                    res.json({
-                        success: true,
-                        msg: "Photos uploaded",
-                        result: result
-                    })
-                } else {
-                    res.json({
-                        success: true,
-                        msg: "Photos uploaded",
-                        length: result.length,
-                        result: result
-                    })
-                }
+
+
+            res.json({
+                success: true,
+                msg: "Photos uploaded",
+                length: result.length,
+                // result: result
             })
         }
+
+
     }
 
     // e.g. 

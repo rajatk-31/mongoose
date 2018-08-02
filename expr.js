@@ -16,8 +16,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
     // app.use('/person', person)
 
-app.post('/:id', (req, res) => {
-    res.send(req.params)
+app.get('/aa', (req, res) => {
+    res.send('dghghs')
+    setTimeout(() => { res.send('dghfssfghs'), res.end() }, 5000)
+
+    // res.end()
 })
 
 

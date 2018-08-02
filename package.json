@@ -29,6 +29,7 @@
     "random-number": "0.0.9",
     "request": "^2.85.0",
     "sendmail": "^1.4.1",
-    "sib-api-v3-sdk": "^7.0.0"
+    "sib-api-v3-sdk": "^7.0.0",
+    "underscore": "^1.9.1"
   }
 }

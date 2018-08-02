@@ -2,11 +2,11 @@ const express = require('express');
 var bodyParser = require('body-parser')
 var app = express()
 var mongoose = require('mongoose')
-var Animal = require('./models/login')
+var dbClass = require('./models/class')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-mongoose.connect('mongodb://localhost/product', err => {
+mongoose.connect('mongodb://localhost/class', err => {
     if (err) {
         console.log(err)
     } else {
@@ -14,21 +14,14 @@ mongoose.connect('mongodb://localhost/product', err => {
     }
 })
 
-// var dog = new Animal({ type: 'dog' })
-// dog.save((err, data) => {
-//         if (err) throw err
-//         console.log(data)
-//     })
-var dog = new Animal({ name: 'Rajat' });
+// var re = new RegExp(req.body.name, 'i')
+// var page = req.params.page;
+// var ipp = req.body.itemsPerPage;
+// var skip = page > 1 ? ((page - 1) * ipp) : 0;
+// dbLead.find({ companyName: req.decoded.companyName.toLowerCase(), status: { $gte: 0 }, name: new RegExp(re) }).skip(skip).limit(ipp).exec((err, leadData) => {
 
-dog.findSimilarTypes(function(err, dogs) {
-    console.log(dogs); // woof
-});
-// Animal.findByName('rajat', function(err, animals) {
-//     console.log(animals);
-// });
+var email = new RegExp("RaJat@outlook.com", 'i')
 
-
-app.listen(4000, () => {
-    console.log("PORT running on 4000")
+dbClass.find({ email: new RegExp(email) }, (err, data) => {
+    console.log(err, '------------', data)
 })
